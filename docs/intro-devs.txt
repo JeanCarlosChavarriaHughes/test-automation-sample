@@ -1,0 +1,3 @@
+pipenv shell
+pipenv install
+cd tests; pytest .
