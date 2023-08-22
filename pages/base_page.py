@@ -14,21 +14,21 @@ class BasePage():
     def click(self, by_locator):
         """doc
         """
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+        return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).click()
 
     def enter_text(self, by_locator, text):
         """doc
         """
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
+        return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     def get_title(self, title) -> str:
         """doc
         """
-        WebDriverWait(self.driver, 10).until(EC.title_is(title))
+        WebDriverWait(self.driver, 15).until(EC.title_is(title))
         return self.driver.title
     
     def get_text(self, by_locator) -> str:
         """doc
         """
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).text
+        return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).text
         

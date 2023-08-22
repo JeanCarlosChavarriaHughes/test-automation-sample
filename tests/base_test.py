@@ -9,7 +9,7 @@ class BaseTest:
         print("initiating driver")
         service = Service(executable_path="../drives/msedgedriver")
         self.driver = webdriver.Edge(service=service)
-        self.driver.implicitly_wait(10)
+        self.driver.implicitly_wait(15)
         print("---------------------\n")
         yield self.driver
 
