@@ -1,26 +1,26 @@
-# test with pytest
-# from tests.base_test import BaseTest
 import re
-# import pytest
-from pages.login_page import LoginPage
-
-#@pytest.mark.usefixtures('set_up')
-#class TestLogin(BaseTest):
-
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-service = Service(executable_path="../drives/msedgedriver")
-driver = webdriver.Edge(service=service)
+import pytest
 
 
-def test_login_success():
-    usr = "student"
-    pwd = "Password123"
-    expected_title = r'Logged In Successfully | Practice Test Automation'
+class TestLogin():
+    @pytest.mark.usefixtures('edge_driver_init')
+    def test_login_success(self):
+        usr = "student"
+        pwd = "Password123"
+        expected_title = r'Logged In Successfully | Practice Test Automation'
 
-    loginPage = LoginPage(driver=driver)
+        self.login_page.submit_login(username=usr, password=pwd)
 
-    loginPage.submit_login(username=usr, password=pwd)
+        actual_title = self.login_page.get_title(title=expected_title)
+        assert re.match(expected_title, actual_title)
+    
+    @pytest.mark.usefixtures('edge_driver_init')
+    def test_login_invalid(self):
+        usr = "BadUser"
+        pwd = "BadPass"
+        expected_hint = r'Your username is invalid!'
 
-    actual_title = loginPage.get_title(title=expected_title)
-    assert re.match(expected_title, actual_title)
+        self.login_page.submit_login(username=usr, password=pwd)
+
+        actual_hint = self.login_page.get_hint()
+        assert re.match(expected_hint, actual_hint)
