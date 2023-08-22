@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.service import Service
 service = Service(executable_path="../drives/msedgedriver")
 driver = webdriver.Edge(service=service)
 
-def test_login_success():
+def test_login_invalid():
     usr = "BadUser"
     pwd = "BadPass"
     expected_hint = r'Your username is invalid!'

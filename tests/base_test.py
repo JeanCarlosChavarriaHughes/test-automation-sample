@@ -10,10 +10,10 @@ class BaseTest:
         service = Service(executable_path="../drives/msedgedriver")
         self.driver = webdriver.Edge(service=service)
         self.driver.implicitly_wait(10)
-        print("---------------------")
+        print("---------------------\n")
         yield self.driver
 
         if self.driver is not None:
-            print("---------------------")
+            print("---------------------\n")
             self.driver.close()
             self.driver.quit

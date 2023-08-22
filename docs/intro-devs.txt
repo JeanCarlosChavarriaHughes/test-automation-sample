@@ -1,37 +1,17 @@
 pipenv shell
 pipenv install
-cd tests; 
 
-(test-automation-sample) tests % pytest -v --setup-show --html=report.html --self-contained-html .
+ test-automation-sample % pytest --setup-show --html=report.html --self-contained-html tests 
 =============================================================== test session starts ===============================================================
-platform darwin -- Python 3.9.17, pytest-7.0.1, pluggy-1.0.0 -- /usr/local/opt/python@3.9/bin/python3.9
-cachedir: .pytest_cache
-plugins: csv-3.0.0, rerunfailures-10.2, html-3.1.1, metadata-1.11.0, ordering-0.6, json-0.4.0
+platform darwin -- Python 3.11.4, pytest-7.4.0, pluggy-1.2.0
+rootdir: /Users/username/Documents/local/test-automation-sample
+plugins: html-3.2.0, metadata-3.0.0
 collected 2 items                                                                                                                                 
 
-test_login_fail.py::test_login_success 
-SETUP    S json_environment
-        test_login_fail.py::test_login_success (fixtures used: json_environment, request)PASSED
-test_login_success.py::test_login_success 
-        test_login_success.py::test_login_success (fixtures used: json_environment, request)PASSED
-TEARDOWN S json_environment
+tests/test_login_fail.py 
+        tests/test_login_fail.py::test_login_invalid.
+tests/test_login_success.py 
+        tests/test_login_success.py::test_login_success.
 
-================================================================ warnings summary =================================================================
-../../../../../../usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:24
-  /usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:24: DeprecationWarning: 'urllib3[secure]' extra is deprecated and will be removed in a future release of urllib3 2.x. Read more in this issue: https://github.com/urllib3/urllib3/issues/2680
-    import urllib3
-
-../../../../../../usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:464: 2 warnings
-test_login_fail.py: 15 warnings
-test_login_success.py: 12 warnings
-  /usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:464: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
-    if resp.getheader('Content-Type'):
-
-../../../../../../usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:465: 2 warnings
-test_login_fail.py: 15 warnings
-test_login_success.py: 12 warnings
-  /usr/local/lib/python3.9/site-packages/selenium/webdriver/remote/remote_connection.py:465: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
-    content_type = resp.getheader('Content-Type').split(';')
-
--- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-========================================================= 2 passed, 59 warnings in 8.26s ==========================================================
+------------------------- generated html file: file:///Users/username/Documents/local/test-automation-sample/report.html --------------------------
+=============================================================== 2 passed in 16.10s ===============================================================

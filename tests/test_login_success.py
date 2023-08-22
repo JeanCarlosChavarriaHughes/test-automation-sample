@@ -1,7 +1,7 @@
 # test with pytest
 # from tests.base_test import BaseTest
 import re
-import pytest
+# import pytest
 from pages.login_page import LoginPage
 
 #@pytest.mark.usefixtures('set_up')
@@ -12,19 +12,7 @@ from selenium.webdriver.chrome.service import Service
 service = Service(executable_path="../drives/msedgedriver")
 driver = webdriver.Edge(service=service)
 
-"""
-@pytest.fixture(autouse=True)
-def driver():
-    # setup
-    service = Service(executable_path="../drives/msedgedriver")
-    driver = webdriver.Edge(service=service)
 
-    yield driver
-
-    # teardown
-    driver.close()
-    driver.quit()
-"""
 def test_login_success():
     usr = "student"
     pwd = "Password123"
