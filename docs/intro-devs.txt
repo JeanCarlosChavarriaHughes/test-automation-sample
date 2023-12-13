@@ -1,17 +1,17 @@
-pipenv shell
-pipenv install
-
- test-automation-sample % pytest --setup-show --html=report.html --self-contained-html tests 
+test-automation-sample % pytest --setup-show --html=report.html --self-contained-html tests 
 =============================================================== test session starts ===============================================================
 platform darwin -- Python 3.11.4, pytest-7.4.0, pluggy-1.2.0
 rootdir: /Users/username/Documents/local/test-automation-sample
 plugins: html-3.2.0, metadata-3.0.0
 collected 2 items                                                                                                                                 
 
-tests/test_login_fail.py 
-        tests/test_login_fail.py::test_login_invalid.
-tests/test_login_success.py 
-        tests/test_login_success.py::test_login_success.
+tests/test_login.py 
+        SETUP    F edge_driver_init
+        tests/test_login.py::TestLogin::test_login_success (fixtures used: edge_driver_init, request).
+        TEARDOWN F edge_driver_init
+        SETUP    F edge_driver_init
+        tests/test_login.py::TestLogin::test_login_invalid (fixtures used: edge_driver_init, request).
+        TEARDOWN F edge_driver_init
 
 ------------------------- generated html file: file:///Users/username/Documents/local/test-automation-sample/report.html --------------------------
-=============================================================== 2 passed in 16.10s ===============================================================
+================================================================ 2 passed in 9.99s ================================================================
