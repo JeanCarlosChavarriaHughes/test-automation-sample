@@ -24,3 +24,9 @@ class TestLogin():
 
         actual_hint = self.login_page.get_hint()
         assert re.match(expected_hint, actual_hint)
+
+    @pytest.mark.usefixtures('edge_driver_init')
+    def test_expected_url(self):
+        expected_url = "https://practicetestautomation.com/practice-test-loginbadd"
+        matching_url = self.login_page.check_url(expected_url)
+        assert (matching_url)

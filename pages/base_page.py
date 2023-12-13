@@ -1,6 +1,7 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 class BasePage():
     """documentation
@@ -31,4 +32,12 @@ class BasePage():
         """doc
         """
         return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(by_locator)).text
+
+    def check_url(self, expected_url) -> str:
+        """doc
+        """
+        try:
+            return WebDriverWait(self.driver, 15).until(EC.url_to_be(expected_url))
+        except TimeoutException as E:
+            return False
         
