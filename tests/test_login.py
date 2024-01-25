@@ -27,6 +27,11 @@ class TestLogin():
 
     @pytest.mark.usefixtures('edge_driver_init')
     def test_expected_url(self):
-        expected_url = "https://practicetestautomation.com/practice-test-loginbadd"
+        # bad url
+        # expected_url = "https://practicetestautomation.com/practice-test-loginbadd"
+        # good url
+        expected_url = "https://practicetestautomation.com/practice-test-login/" 
+        print(self.driver.current_url)
+
         matching_url = self.login_page.check_url(expected_url)
         assert (matching_url)
